@@ -193,6 +193,14 @@ a:focus {
   padding-top: 8%;
 }
 
+.coming_soon_section {
+  min-height: calc(60vh);
+    vertical-align: middle;
+    align-content: center;
+    align-items: center;
+}
+
+
 .slider_item-box {
   width: 100%;
   height: 100%;
@@ -403,17 +411,14 @@ a:focus {
 
 .contact_section {
 background-color: white;
-  background-image: url(../images/orange-dish.png);
-  background-repeat: no-repeat;
-  background-size: 215px;
-  background-position: right center;
+
 }
 
 .contact_section input {
   border: none;
   outline: none;
   border-bottom: .8px solid #252525;
-  width: 90%;
+  width: 50%;
   margin: 10px 0;
 }
 
@@ -449,6 +454,7 @@ background-color: white;
 /* info section */
 .info_section ul {
   padding: 0;
+    text-align-last: center;
 }
 
 .info_section ul li {
