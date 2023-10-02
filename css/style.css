@@ -194,10 +194,11 @@ a:focus {
 }
 
 .coming_soon_section {
-  min-height: calc(60vh);
-    vertical-align: middle;
-    align-content: center;
+  display: grid;
+  min-height: calc(70vh);
+    background-color: black;
     align-items: center;
+    
 }
 
 
