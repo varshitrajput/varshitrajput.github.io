@@ -558,21 +558,24 @@
       </h2>
       <div class="row">
         <div class="col-md-12 mr-auto">
-          <form action="">
+          <form onsubmit="sendEmail(); reset(); return false;">
             <div class="contact_form-container">
               <div>
                 <div>
-                  <input type="text" placeholder="Name">
+                  <input type="text" id= "name" placeholder="Enter your Name">
                 </div>
                 <div>
-                  <input type="text" placeholder="Phone Number">
+                  <input type="text" id= "phone_number" placeholder="Phone Number">
                 </div>
                 <div>
-                  <input type="email" placeholder="Email">
+                  <input type="email" id= "email" placeholder="Email">
+                </div>
+                  <div>
+                  <input type="text" id= "message" placeholder="Message">
                 </div>
                 <div class="mt-5">
                   <button type="submit">
-                    send
+                    Send
                   </button>
                 </div>
               </div>
@@ -641,7 +644,24 @@
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
 
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
 
+    <script>
+    function sendEmail(){
+        Email.send({
+            SecureToken : "2ecacb13-3557-41b0-b44c-8adeb9254240",
+            To : 'jatinrawat43@gmail.com',
+            From : 'jatinrawat43@gmail.com',
+            Subject : "Query from:" + document.getElementById("email").value,
+            Body : "Query Details:<br> Name: " + document.getElementById("name").value
+            + "<br> Email: " + document.getElementById("email").value + "<br> Phone: " +
+            document.getElementById("phone_number").value + "<br> Message: " + document.getElementById("message").value
+        }).then(
+          message => alert("Our Team will be in touch shortly, Thanks.")
+        );
+    }
+    </script>
   <!-- end google map js -->
 </body>
 
