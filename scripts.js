@@ -126,8 +126,6 @@ function bindImageUpload () {
     reader.onload = function (event) {
       var img = new Image()
       img.onload = function () {
-                  initializeStage();  // Initialize the stage and layer
-
         pattern = new Konva.Image({
           x: 500,
           y: 500,
