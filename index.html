@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="shrink-to-fit=no,width=device-width,height=device-height,initial-scale=1,user-scalable=1">
+    <meta name="description" content="A tool to help generate crochet patterns">
+    <title>Crochet pattern maker for tse</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <script defer type="text/javascript" src="konva.min.js"></script>
+    <script defer type="text/javascript" src="color-thief.umd.js"></script>
+    <script defer type="text/javascript" src="nearestColor.js"></script>
+    <script defer type="text/javascript" src="scripts.js"></script>
+  </head>
+  <body>
+    <div id="flex">
+      <form action="#" method="post" id="form">
+        <div id="intro">
+            <img src="main.png" alt="Centered Image"  style="max-width: 100%; max-height: 100%; height: auto; width: auto;">
+
+          <p>TAPESTRY PATTERN GENERATOR</p>
+            <p1>This app is made for girlfriend who want's to generate
+            tapestry patterns</p1>
+        </div>
+        <label for="rows">
+          <span>Number of horizontal knots:</span>
+          <input type="number" id="rows" name="rows" min="1" max="150" value="25" />
+        </label>
+        <label for="columns">
+          <span>Number of vertical knots:</span>
+          <input type="number" id="columns" name="columns" min="1" max="150" value="25" />
+        </label>
+        <label for="columns">
+          <span>Number of colors to extract:</span>
+          <input type="number" id="colors" name="colors" min="1" max="100" value="2" />
+        </label>
+           <!-- Color selector with circles -->
+        <div id="colorSelector">
+            <label for="patternbg">Select Color:</label>
+            <select id="patternbg">
+                 <option value="#ff0000" style="background-color: #ff0000;">Red</option>
+                <option value="#0000ff" style="background-color: #0000ff;">Blue</option>
+                <option value="#ffff00" style="background-color: #ffff00;">Yellow</option>
+                <option value="#008000" style="background-color: #008000;">Green</option>
+                <option value="#ffa500" style="background-color: #ffa500;">Orange</option>
+                <option value="#800080" style="background-color: #800080;">Purple</option>
+                <option value="#000000" style="background-color: #000000;">Black</option>
+                <option value="#ffffff" style="background-color: #ffffff;">White</option>
+                <option value="#a52a2a" style="background-color: #a52a2a;">Brown</option>
+                <option value="#808080" style="background-color: #808080;">Gray</option>
+        
+            </select>
+        </div>
+        
+
+         <button type="submit">Next</button>
+      </form>
+
+      <div id="imageForm">
+        <label>
+          Upload Your Image File:
+          <input type="file" id="imageLoader" name="imageLoader"/>
+        </label>
+      </div>
+      <div id="container"></div>
+    </div>
+    <div id="render"> Create Grid!</div>
+    <div id="gridonholder">
+      <label for="gridon">
+        <span>Grid on:</span>
+        <input type="checkbox" name="gridon" id="gridon" checked>
+      </label>
+    </div>
+  </body>
+</html>
+
