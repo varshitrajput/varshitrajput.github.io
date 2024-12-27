@@ -127,8 +127,8 @@ function bindImageUpload () {
       var img = new Image()
       img.onload = function () {
         pattern = new Konva.Image({
-          x: 500,
-          y: 500,
+          x: 1000,
+          y: 1000,
           name: 'pattern',
           image: img,
           draggable: true,
@@ -317,7 +317,7 @@ function drawRenderCanvas() {
 
       if (isGridEnabled) {
         // Display column number inside each filled square
-        renderCTX.fillStyle = 'black';
+        renderCTX.fillStyle = 'white';
         renderCTX.font = '12px Arial';
 
         // Check if color has changed
