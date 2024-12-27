@@ -318,7 +318,7 @@ function drawRenderCanvas() {
       if (isGridEnabled) {
         // Display column number inside each filled square
         renderCTX.fillStyle = 'white';
-        renderCTX.font = '12px Arial';
+        renderCTX.font = '8px Arial';
 
         // Check if color has changed
         if (currentColor !== renderedGrid[i][j]) {
