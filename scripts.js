@@ -127,8 +127,8 @@ function bindImageUpload () {
       var img = new Image()
       img.onload = function () {
         pattern = new Konva.Image({
-          x: 1000,
-          y: 1000,
+          x: 500,
+          y: 500,
           name: 'pattern',
           image: img,
           draggable: true,
