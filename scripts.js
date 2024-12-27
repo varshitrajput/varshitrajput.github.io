@@ -317,8 +317,18 @@ function drawRenderCanvas() {
 
       if (isGridEnabled) {
         // Display column number inside each filled square
+        let rgb = currentColor.match(/\d+/g); // Extract R, G, B components from a color like "rgb(255, 0, 0)"
+    if (rgb) {
+        let r = 255 - parseInt(rgb[0]); // Invert red
+        let g = 255 - parseInt(rgb[1]); // Invert green
+        let b = 255 - parseInt(rgb[2]); // Invert blue
+        renderCTX.fillStyle = `rgb(${r}, ${g}, ${b})`; // Set the inverted color
+    } else {
+        // Fallback color in case currentColor is not in RGB format
         renderCTX.fillStyle = 'white';
-        renderCTX.font = '8px Arial';
+    }
+
+    renderCTX.font = '8px Arial';
 
         // Check if color has changed
         if (currentColor !== renderedGrid[i][j]) {
