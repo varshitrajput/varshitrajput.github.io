@@ -320,6 +320,8 @@ function drawRenderCanvas() {
         // Fallback color in case currentColor is not in RGB format
         renderCTX.fillStyle = 'white'
         renderCTX.font = '8px Arial';
+        renderCTX.textAlign = 'center';
+        renderCTX.textBaseline = 'middle';
 
         // Check if color has changed
         if (currentColor !== renderedGrid[i][j]) {
