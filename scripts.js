@@ -318,8 +318,8 @@ function drawRenderCanvas() {
       if (isGridEnabled) {
     
         // Fallback color in case currentColor is not in RGB format
-        renderCTX.fillStyle = invertColor(currentColor);
-        renderCTX.font = '8px Arial';
+        renderCTX.fillStyle = 'blue'
+        renderCTX.font = '10px Arial';
 
         // Check if color has changed
         if (currentColor !== renderedGrid[i][j]) {
