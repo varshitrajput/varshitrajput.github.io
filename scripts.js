@@ -316,19 +316,10 @@ function drawRenderCanvas() {
       renderCTX.fillRect(i * hInc, j * vInc, hInc, vInc);
 
       if (isGridEnabled) {
-        // Display column number inside each filled square
-        let rgb = currentColor.match(/\d+/g); // Extract R, G, B components from a color like "rgb(255, 0, 0)"
-    if (rgb) {
-        let r = 255 - parseInt(rgb[0]); // Invert red
-        let g = 255 - parseInt(rgb[1]); // Invert green
-        let b = 255 - parseInt(rgb[2]); // Invert blue
-        renderCTX.fillStyle = `rgb(${r}, ${g}, ${b})`; // Set the inverted color
-    } else {
+    
         // Fallback color in case currentColor is not in RGB format
-        renderCTX.fillStyle = 'white';
-    }
-
-    renderCTX.font = '8px Arial';
+        renderCTX.fillStyle = invertColor(currentColor);
+        renderCTX.font = '8px Arial';
 
         // Check if color has changed
         if (currentColor !== renderedGrid[i][j]) {
@@ -377,6 +368,48 @@ function rgba2rgb (r, g, b, a) {
     Math.round((1 - a) * 255 + a * g),
     Math.round((1 - a) * 255 + a * b)
   ]
+}
+
+// Function to invert a hex color
+function invertColor(hex) {
+  // Remove the '#' if present
+  hex = hex.replace(/^#/, '');
+
+  // Parse the color components
+  let r = parseInt(hex.slice(0, 2), 16);
+  let g = parseInt(hex.slice(2, 4), 16);
+  let b = parseInt(hex.slice(4, 6), 16);
+
+  // Invert the RGB values
+  r = 255 - r;
+  g = 255 - g;
+  b = 255 - b;
+
+  // Return the inverted color as a hex string
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+if (isGridEnabled) {
+  for (let i = 0; i < gw; ++i) {
+    for (let j = 0; j < gh; ++j) {
+      // Get the current grid cell's hex color
+      const cellColor = renderedGrid[i][j];
+
+      // Calculate the opposite color
+      const invertedColor = invertColor(cellColor);
+
+      // Set the text color to the inverted color
+      renderCTX.fillStyle = invertedColor;
+
+      // Render the column number or other text inside the grid cell
+      renderCTX.font = '8px Arial';
+      renderCTX.fillText(
+        `${i},${j}`, // Text to render
+        i * hInc + hInc / 2, // X position (center of the grid square)
+        j * vInc + vInc / 2 // Y position (center of the grid square)
+      );
+    }
+  }
 }
 
 function rgbToHex (r, g, b) {
